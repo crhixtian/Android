@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "541271102074",
+    "project_id": "martes-ce",
+    "storage_bucket": "martes-ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541271102074:android:722ee47eb8b8f6995f61c3",
+        "android_client_info": {
+          "package_name": "com.martes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541271102074-dn1a6sbho55ot804p0kvhl5lasbum8o7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.martes",
+            "certificate_hash": "fe3ad43700c8a9816f03deff6e19fbeba3e343d2"
+          }
+        },
+        {
+          "client_id": "541271102074-chormoshbrp9sd5pc2e2l076c6dhpte2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQBjchZmIQujpHSaIQxBKJwnrKfG9jveY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541271102074-chormoshbrp9sd5pc2e2l076c6dhpte2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
