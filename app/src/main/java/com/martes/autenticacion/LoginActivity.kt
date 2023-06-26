@@ -139,15 +139,13 @@ class LoginActivity : AppCompatActivity() {
                                 if (usuario.getString("nombres") != null) {
                                     toast("Hola ${usuario.getString("nombres")}")
                                     startActivity(
-                                        Intent(
-                                            this@LoginActivity,
+                                        Intent(this@LoginActivity,
                                             InicioActivity::class.java
                                         )
                                     )
                                 } else {
                                     startActivity(
-                                        Intent(
-                                            this@LoginActivity,
+                                        Intent(this@LoginActivity,
                                             RegistoGoogleActivity::class.java
                                         )
                                     )
