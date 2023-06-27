@@ -16,7 +16,6 @@ class RegistoGoogleActivity : AppCompatActivity() {
     private lateinit var paterno: TextInputEditText
     private lateinit var materno: TextInputEditText
     private lateinit var dni: TextInputEditText
-    private lateinit var btnRegistro: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +25,8 @@ class RegistoGoogleActivity : AppCompatActivity() {
         paterno = findViewById(R.id.inputPaternoG)
         materno = findViewById(R.id.inputMaternoG)
         dni = findViewById(R.id.inputDniG)
-        btnRegistro = findViewById(R.id.btnRegistroG)
 
-        btnRegistro.setOnClickListener {
+        findViewById<Button>(R.id.btnRegistroG).setOnClickListener {
             validarCampos()
         }
     }
@@ -38,13 +36,13 @@ class RegistoGoogleActivity : AppCompatActivity() {
     }
 
     private fun validarCampos() {
-        if ( nombres.text.toString().trim().isNotEmpty() && materno.text.toString().trim().isNotEmpty() &&
-            paterno.text.toString().trim().isNotEmpty() && dni.text.toString().trim().isNotEmpty()
-        ) {
+        val camposNoVacios = listOf(nombres, materno, paterno, dni)
+            .map { it.text.toString().trim().isNotEmpty() }
+            .all { it }
+
+        camposNoVacios.takeIf { it }?.let {
             guardarInformacionUsuarioG()
-        } else {
-            toast("Campos vacios")
-        }
+        } ?: toast("Campos vacíos")
     }
 
     private fun guardarInformacionUsuarioG() {
@@ -60,7 +58,8 @@ class RegistoGoogleActivity : AppCompatActivity() {
                 )
             ).addOnSuccessListener {
                 startActivity(
-                    Intent(this@RegistoGoogleActivity,
+                    Intent(
+                        this@RegistoGoogleActivity,
                         InicioActivity::class.java
                     )
                 )

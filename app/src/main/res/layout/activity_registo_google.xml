@@ -119,18 +119,6 @@
             android:text="@string/registrar"
             android:textSize="16sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/interrogante_login"
-            android:textAlignment="center"
-            android:textSize="16sp" />
-
     </LinearLayout>
 
 

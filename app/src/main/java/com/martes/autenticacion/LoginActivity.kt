@@ -22,12 +22,7 @@ import com.martes.presentacion.InicioActivity
 class LoginActivity : AppCompatActivity() {
     private lateinit var correo: TextInputEditText
     private lateinit var contrasena: TextInputEditText
-    private lateinit var btnLogin: Button
-    private lateinit var btnGoogle: Button
     private lateinit var textRegistro: TextView
-    private lateinit var nombre: String
-
-
     private val signInLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -49,15 +44,13 @@ class LoginActivity : AppCompatActivity() {
 
         correo = findViewById(R.id.inputCorreoL)
         contrasena = findViewById(R.id.inputContrasenaL)
-        btnLogin = findViewById(R.id.btnLogin)
-        btnGoogle = findViewById(R.id.btnGoogle)
         textRegistro = findViewById(R.id.textRegistro)
 
-        btnLogin.setOnClickListener {
+        findViewById<Button>(R.id.btnLogin).setOnClickListener {
             validarCampos()
         }
 
-        btnGoogle.setOnClickListener {
+        findViewById<Button>(R.id.btnGoogle).setOnClickListener {
             iniciarSesionGoogle()
         }
 
@@ -86,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun iniciarSesion() {
+        lateinit var nombre: String
         FirebaseAuth.getInstance().signInWithEmailAndPassword(
             correo.text.toString().trim(),
             contrasena.text.toString().trim()
