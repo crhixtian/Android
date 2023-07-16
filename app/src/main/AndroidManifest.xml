@@ -31,7 +31,8 @@
                 android:exported="false"/>
         <activity
                 android:name=".presentation.authentication.RegistroActivity"
-                android:exported="false"/>
+                android:exported="false"
+                android:windowSoftInputMode="adjustResize"/>
         <activity
                 android:name=".presentation.authentication.LoginActivity"
                 android:exported="false"

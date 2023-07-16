@@ -1,13 +1,13 @@
 package com.martes.presentation.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -16,9 +16,9 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import com.martes.InicioActivity
 import com.martes.R
 import com.martes.presentation.authentication.google.RegistoGoogleActivity
-import com.martes.InicioActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var correo: TextInputEditText
@@ -124,6 +124,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
+        //toast(account.displayName?.split(" ")?.first() ?: "")
         GoogleAuthProvider.getCredential(account.idToken, null).let { credential ->
             FirebaseAuth.getInstance().signInWithCredential(credential)
                 .addOnCompleteListener {

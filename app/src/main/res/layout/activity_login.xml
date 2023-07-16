@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ui_button_background"
-                android:drawableLeft="@drawable/googleg_standard_color_18"
+                android:drawable="@drawable/googleg_standard_color_18"
                 android:text="@string/iniciar_google"
                 android:textSize="16sp"
                 android:layout_marginBottom="10dp"/>
@@ -68,9 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ui_button_background"
-                android:drawableLeft="@drawable/com_facebook_color_blue"
+                android:drawable="@drawable/com_facebook_color_blue"
                 android:textSize="16sp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="15dp"/>
 
         <TextView
                 android:id="@+id/textRegistro"

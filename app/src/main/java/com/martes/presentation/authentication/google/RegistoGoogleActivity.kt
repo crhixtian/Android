@@ -1,21 +1,20 @@
 package com.martes.presentation.authentication.google
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.martes.R
 import com.martes.InicioActivity
+import com.martes.R
 
 class RegistoGoogleActivity : AppCompatActivity() {
     private lateinit var nombres: TextInputEditText
     private lateinit var paterno: TextInputEditText
     private lateinit var materno: TextInputEditText
-    private lateinit var dni: TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +23,6 @@ class RegistoGoogleActivity : AppCompatActivity() {
         nombres = findViewById(R.id.inputNombresG)
         paterno = findViewById(R.id.inputPaternoG)
         materno = findViewById(R.id.inputMaternoG)
-        dni = findViewById(R.id.inputDniG)
 
         findViewById<Button>(R.id.btnRegistroG).setOnClickListener {
             validarCampos()
@@ -36,7 +34,7 @@ class RegistoGoogleActivity : AppCompatActivity() {
     }
 
     private fun validarCampos() {
-        val camposNoVacios = listOf(nombres, materno, paterno, dni)
+        val camposNoVacios = listOf(nombres, materno, paterno)
             .map { it.text.toString().trim().isNotEmpty() }
             .all { it }
 
@@ -53,8 +51,7 @@ class RegistoGoogleActivity : AppCompatActivity() {
                 hashMapOf(
                     "nombres" to nombres.text.toString(),
                     "aPaterno" to paterno.text.toString(),
-                    "aMaterno" to materno.text.toString(),
-                    "dni" to dni.text.toString()
+                    "aMaterno" to materno.text.toString()
                 )
             ).addOnSuccessListener {
                 startActivity(

@@ -1,88 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.authentication.RegistroActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.authentication.RegistroActivity">
 
     <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="150dp" />
+            android:layout_width="320dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputNombresR"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="@string/nombre_completos"
-                android:inputType="text"
-                android:maxLength="20"
-                android:textSize="16sp"/>
+                    android:id="@+id/inputNombresR"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="@string/nombre_completos"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"
-            android:layout_weight="1" />
-
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:weightSum="2">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputPaternoR"
-                        android:layout_width="155dp"
+                        android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:hint="@string/apellido_paterno"
                         android:maxLength="10"
                         android:inputType="text"
                         android:textSize="16sp"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:layout_width="15dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
 
-                <Space
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/inputMaternoR"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
@@ -90,97 +68,56 @@
                         android:maxLength="10"
                         android:inputType="text"
                         android:textSize="16sp"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_weight="1" />
-
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputDniR"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="@string/dni"
-                android:maxLength="8"
-                android:inputType="number"
-                android:textSize="16sp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_weight="1" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputCorreoR"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="@string/correo_electronico"
-                android:inputType="textEmailAddress"
-                android:textSize="16sp" />
+                    android:id="@+id/inputCorreoR"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="@string/correo_electronico"
+                    android:inputType="textEmailAddress"
+                    android:textSize="16sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_weight="1" />
-
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:endIconMode="password_toggle">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:endIconMode="password_toggle"
+                android:layout_marginBottom="15dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputContrasenaR"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="@string/contrasena"
-                android:inputType="textPassword"
-                android:textSize="16sp" />
+                    android:id="@+id/inputContrasenaR"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="@string/contrasena"
+                    android:inputType="textPassword"
+                    android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="320dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/btnRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/ui_button_background"
-            android:text="@string/registrar"
-            android:textSize="16sp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
+                android:id="@+id/btnRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/ui_button_background"
+                android:text="@string/registrar"
+                android:textSize="16sp"
+                android:layout_marginBottom="15dp"/>
         <TextView
-            android:id="@+id/textLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/interrogante_login"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+                android:id="@+id/textLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/interrogante_login"
+                android:textAlignment="center"
+                android:textSize="16sp"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

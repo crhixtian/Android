@@ -1,22 +1,21 @@
 package com.martes.presentation.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.martes.R
 import com.martes.InicioActivity
+import com.martes.R
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var nombres: TextInputEditText
     private lateinit var paterno: TextInputEditText
     private lateinit var materno: TextInputEditText
-    private lateinit var dni: TextInputEditText
     private lateinit var correo: TextInputEditText
     private lateinit var contrasena: TextInputEditText
 
@@ -27,7 +26,6 @@ class RegistroActivity : AppCompatActivity() {
         nombres = findViewById(R.id.inputNombresR)
         paterno = findViewById(R.id.inputPaternoR)
         materno = findViewById(R.id.inputMaternoR)
-        dni = findViewById(R.id.inputDniR)
         correo = findViewById(R.id.inputCorreoR)
         contrasena = findViewById(R.id.inputContrasenaR)
 
@@ -49,7 +47,7 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun validarCampos() {
-        val camposNoVacios = listOf(correo, contrasena, nombres, materno, paterno, dni)
+        val camposNoVacios = listOf(correo, contrasena, nombres, materno, paterno)
             .map { it.text.toString().trim().isNotEmpty() }
             .all { it }
         val correoValidado = correo.text.toString().trim()
@@ -81,7 +79,6 @@ class RegistroActivity : AppCompatActivity() {
                     "nombres" to nombres.text.toString(),
                     "aPaterno" to paterno.text.toString(),
                     "aMaterno" to materno.text.toString(),
-                    "dni" to dni.text.toString()
                 )
             ).addOnSuccessListener {
                 startActivity(
