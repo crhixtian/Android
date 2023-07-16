@@ -1,4 +1,4 @@
-package com.martes.profile
+package com.martes.presentation.profile
 
 import android.os.Bundle
 import android.widget.TextView

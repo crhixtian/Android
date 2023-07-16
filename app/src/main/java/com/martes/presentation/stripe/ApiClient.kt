@@ -39,7 +39,7 @@ class ApiClient {
                     val responseJson = responseData?.let{
                         JSONObject(it)
                     }?: JSONObject()
-                    var paymentIntentClientSecret: String = responseJson.getString("clientSecret")
+                    val paymentIntentClientSecret: String = responseJson.getString("clientSecret")
                     completion(paymentIntentClientSecret, null)
                 }
             }

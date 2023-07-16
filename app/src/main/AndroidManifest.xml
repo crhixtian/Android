@@ -16,7 +16,7 @@
             android:theme="@style/Theme.Martes"
             tools:targetApi="31">
         <activity
-                android:name=".profile.ProfileActivity"
+                android:name=".presentation.profile.ProfileActivity"
                 android:exported="false"/>
         <activity
                 android:name=".presentation.stripe.CardActivity"

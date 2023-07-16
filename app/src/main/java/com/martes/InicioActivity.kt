@@ -9,7 +9,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.martes.presentation.authentication.LoginActivity
 import com.martes.presentation.stripe.CardActivity
-import com.martes.profile.ProfileActivity
+import com.martes.presentation.profile.ProfileActivity
 
 class InicioActivity : AppCompatActivity() {
     private lateinit var btnOut: Button
