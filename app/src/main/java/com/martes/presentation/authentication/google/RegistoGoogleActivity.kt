@@ -1,4 +1,4 @@
-package com.martes.autenticacion.google
+package com.martes.presentation.authentication.google
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.martes.R
-import com.martes.presentacion.InicioActivity
+import com.martes.InicioActivity
 
 class RegistoGoogleActivity : AppCompatActivity() {
     private lateinit var nombres: TextInputEditText

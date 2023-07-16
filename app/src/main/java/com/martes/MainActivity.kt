@@ -1,17 +1,16 @@
 package com.martes
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.martes.autenticacion.LoginActivity
-import com.martes.presentacion.InicioActivity
+import com.martes.presentation.authentication.LoginActivity
 
 class MainActivity : AppCompatActivity() {
-    private val retardo: Long = 1000
+    private val retardo: Long = 500
     private lateinit var nombre: String
 
     override fun onCreate(savedInstanceState: Bundle?) {

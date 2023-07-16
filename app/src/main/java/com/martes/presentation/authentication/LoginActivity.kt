@@ -1,8 +1,9 @@
-package com.martes.autenticacion
+package com.martes.presentation.authentication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -16,8 +17,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.martes.R
-import com.martes.autenticacion.google.RegistoGoogleActivity
-import com.martes.presentacion.InicioActivity
+import com.martes.presentation.authentication.google.RegistoGoogleActivity
+import com.martes.InicioActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var correo: TextInputEditText
@@ -53,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnGoogle).setOnClickListener {
             iniciarSesionGoogle()
         }
+
+        findViewById<Button>(R.id.btnFacebook).visibility = View.GONE
 
         textRegistro.setOnClickListener {
             startActivity(
@@ -133,13 +136,15 @@ class LoginActivity : AppCompatActivity() {
                                 if (usuario.getString("nombres") != null) {
                                     toast("Hola ${usuario.getString("nombres")}")
                                     startActivity(
-                                        Intent(this@LoginActivity,
+                                        Intent(
+                                            this@LoginActivity,
                                             InicioActivity::class.java
                                         )
                                     )
                                 } else {
                                     startActivity(
-                                        Intent(this@LoginActivity,
+                                        Intent(
+                                            this@LoginActivity,
                                             RegistoGoogleActivity::class.java
                                         )
                                     )
