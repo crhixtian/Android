@@ -8,13 +8,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.martes.presentation.authentication.LoginActivity
-import com.martes.presentation.stripe.CardActivity
+import com.martes.presentation.image.ImageActivity
 import com.martes.presentation.profile.ProfileActivity
+import com.martes.presentation.stripe.CardActivity
 
 class InicioActivity : AppCompatActivity() {
     private lateinit var btnOut: Button
     private lateinit var btnPay: Button
     private lateinit var btnProfile: Button
+    private lateinit var btnUp: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,7 @@ class InicioActivity : AppCompatActivity() {
         btnOut = findViewById(R.id.btnOut)
         btnPay = findViewById(R.id.btnPay)
         btnProfile = findViewById(R.id.btnProfile)
+        btnUp = findViewById(R.id.btnUp)
 
         btnOut.setOnClickListener {
             cerrarSesion()
@@ -39,6 +42,14 @@ class InicioActivity : AppCompatActivity() {
                 Intent(
                     this@InicioActivity,
                     ProfileActivity::class.java
+                )
+            )
+        }
+        btnUp.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@InicioActivity,
+                    ImageActivity::class.java
                 )
             )
         }

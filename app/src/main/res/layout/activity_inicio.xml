@@ -39,13 +39,23 @@
                 android:background="@drawable/ui_button_background"
                 android:drawableLeft="@drawable/stripe_ic_paymentsheet_pm_card"
                 android:text="Pay"/>
+
         <Button
                 android:id="@+id/btnProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/ui_button_background"
                 android:drawableLeft="@drawable/stripe_3ds2_ic_mastercard"
                 android:text="Profile"/>
+
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ui_button_background"
+                android:drawableLeft="@drawable/stripe_3ds2_ic_mastercard"
+                android:text="Profile"
+                android:id="@+id/btnUp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
