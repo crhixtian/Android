@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.martes.R
 
@@ -53,7 +54,7 @@ class ImageActivity : AppCompatActivity() {
                                 .set(
                                     hashMapOf(
                                         "imageURL" to it.toString()
-                                    )
+                                    ), SetOptions.merge()
                                 )
                         }
                     }
