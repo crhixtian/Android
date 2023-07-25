@@ -18,6 +18,7 @@ class UserRepositoryImp : UserRepository {
                     val aPaterno = it.getString("aPaterno")
                     val aMaterno = it.getString("aMaterno")
                     val dni = it.getString("dni")
+                    val tiempo = it.getTimestamp("time")
                     val distrito = it.getString("distrito")
                     onSuccess(
                         User(
@@ -25,6 +26,7 @@ class UserRepositoryImp : UserRepository {
                             aPaterno.toString(),
                             aMaterno.toString(),
                             dni.toString(),
+                            tiempo?.seconds.toString(),
                             distrito.toString()
                         )
                     )

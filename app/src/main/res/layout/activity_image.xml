@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-            android:text="@string/firebase"
+            android:text="@string/galeria"
             android:background="@drawable/ui_button_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

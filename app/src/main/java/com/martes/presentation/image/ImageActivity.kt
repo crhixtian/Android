@@ -39,27 +39,39 @@ class ImageActivity : AppCompatActivity() {
         imagePicker.launch(intent)
     }
 
-
     private fun uploadImage(uri: Uri) {
-        val image = FirebaseStorage.getInstance().reference.child("images/${System.currentTimeMillis()}_image.jpg")
+        val seconds = System.currentTimeMillis()/1000
         val user = FirebaseAuth.getInstance().currentUser?.email.toString()
+        val image = FirebaseStorage.getInstance().reference.child("${user}/images/${seconds}.jpg")
+
         image.putFile(uri)
             .addOnSuccessListener {
-                image.downloadUrl
-                    .addOnSuccessListener {
-                        if (user.isNotEmpty()) {
-                            FirebaseFirestore.getInstance()
-                                .collection("usuario")
-                                .document(user)
-                                .set(
-                                    hashMapOf(
-                                        "imageURL" to it.toString()
-                                    ), SetOptions.merge()
-                                )
-                        }
+                it.storage.downloadUrl.addOnSuccessListener { url ->
+                    if (user.isNotEmpty()) {
+                        FirebaseFirestore.getInstance()
+                            .collection("usuario")
+                            .document(user)
+                            .set(
+                                hashMapOf(
+                                    "imageURL" to url.toString()
+                                ), SetOptions.merge()
+                            )
+
+                        FirebaseFirestore.getInstance()
+                            .collection("usuario")
+                            .document(user)
+                            .collection("imagen")
+                            .document(seconds.toString())
+                            .set(
+                            hashMapOf(
+                                "imageURL" to url.toString()
+                            )
+                        )
                     }
+                }
             }
             .addOnFailureListener {
+
             }
     }
 }

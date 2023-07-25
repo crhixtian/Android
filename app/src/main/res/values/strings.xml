@@ -12,7 +12,6 @@
     <string name="nombre_completos">Nombres completos</string>
     <string name="apellido_paterno">Apellido paterno</string>
     <string name="apellido_materno">Apellido materno</string>
-    <string name="dni">Documento de indentidad</string>
     <string name="interrogante_registro">¿No tienes registro?
         <b>Registrate</b>
     </string>
@@ -24,4 +23,5 @@
     <string name="pagar">Pagar</string>
     <string name="firebase">Firebase</string>
     <string name="asterisco">*</string>
+    <string name="galeria">Galeria</string>
 </resources>

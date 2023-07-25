@@ -5,5 +5,6 @@ data class User(
     val aPaterno:String,
     val aMaterno: String,
     val dni: String,
+    val tiempo: String,
     val distrito: String
 )
