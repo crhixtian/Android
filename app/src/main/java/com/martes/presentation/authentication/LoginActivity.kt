@@ -91,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     FirebaseFirestore.getInstance()
                         .collection("usuario")
-                        .document(FirebaseAuth.getInstance().currentUser?.email!!)
+                        .document(FirebaseAuth.getInstance().currentUser?.uid!!)
                         .get()
                         .addOnSuccessListener { usuario ->
                             nombre = usuario.getString("nombres").toString()
@@ -131,7 +131,7 @@ class LoginActivity : AppCompatActivity() {
                     if (it.isSuccessful) {
                         FirebaseFirestore.getInstance()
                             .collection("usuario")
-                            .document(FirebaseAuth.getInstance().currentUser?.email!!)
+                            .document(FirebaseAuth.getInstance().currentUser?.uid!!)
                             .get()
                             .addOnSuccessListener { usuario ->
                                 if (usuario.getString("nombres") != null) {

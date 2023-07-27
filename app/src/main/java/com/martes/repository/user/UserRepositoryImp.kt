@@ -10,7 +10,7 @@ class UserRepositoryImp : UserRepository {
     ) {
         FirebaseFirestore.getInstance()
             .collection("usuario")
-            .document(FirebaseAuth.getInstance().currentUser?.email.toString())
+            .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
             .get()
             .addOnSuccessListener {
                 if (it.exists()) {

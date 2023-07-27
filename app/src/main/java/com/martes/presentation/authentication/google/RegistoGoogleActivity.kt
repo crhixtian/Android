@@ -46,7 +46,7 @@ class RegistoGoogleActivity : AppCompatActivity() {
     private fun guardarInformacionUsuarioG() {
         FirebaseFirestore.getInstance()
             .collection("usuario")
-            .document(FirebaseAuth.getInstance().currentUser?.email.toString())
+            .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
             .set(
                 hashMapOf(
                     "nombres" to nombres.text.toString(),

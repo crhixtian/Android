@@ -41,7 +41,7 @@ class ImageActivity : AppCompatActivity() {
 
     private fun uploadImage(uri: Uri) {
         val seconds = System.currentTimeMillis()/1000
-        val user = FirebaseAuth.getInstance().currentUser?.email.toString()
+        val user = FirebaseAuth.getInstance().currentUser?.uid.toString()
         val image = FirebaseStorage.getInstance().reference.child("${user}/images/${seconds}.jpg")
 
         image.putFile(uri)

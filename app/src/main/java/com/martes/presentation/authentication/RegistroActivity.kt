@@ -73,7 +73,7 @@ class RegistroActivity : AppCompatActivity() {
     private fun guardarInformacionUsuario() {
         FirebaseFirestore.getInstance()
             .collection("usuario")
-            .document(FirebaseAuth.getInstance().currentUser?.email.toString())
+            .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
             .set(
                 hashMapOf(
                     "nombres" to nombres.text.toString(),
