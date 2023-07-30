@@ -11,10 +11,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessaging
+import com.martes.presentation.assistance.AssistanceActivity
 import com.martes.presentation.authentication.LoginActivity
 import com.martes.presentation.image.ImageActivity
 import com.martes.presentation.profile.ProfileActivity
-import com.martes.presentation.stripe.CardActivity
 
 class InicioActivity : AppCompatActivity() {
     private lateinit var btnOut: Button
@@ -37,7 +37,7 @@ class InicioActivity : AppCompatActivity() {
             startActivity(
                 Intent(
                     this@InicioActivity,
-                    CardActivity::class.java
+                    AssistanceActivity::class.java
                 )
             )
         }
@@ -61,7 +61,7 @@ class InicioActivity : AppCompatActivity() {
         FirebaseMessaging.getInstance().token.addOnCompleteListener(
             OnCompleteListener {
                 if (!it.isSuccessful) {
-                    Log.w(TAG, "Fetching FCM registration token failed", it.exception)
+                    Log.w(TAG, "FCM token failed", it.exception)
                     return@OnCompleteListener
                 }
                 Log.d(TAG, getString(R.string.msg_token_fmt, it.result))

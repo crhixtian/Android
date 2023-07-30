@@ -25,7 +25,7 @@ class ProfileActivity : AppCompatActivity() {
     private fun recoverData() {
         user.recoverProfileData(
             onSuccess = {
-                nombres.text = it.tiempo
+                nombres.text = it.nombres
             }
         )
     }
