@@ -14,6 +14,8 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.martes.presentation.assistance.AssistanceActivity
 import com.martes.presentation.authentication.LoginActivity
 import com.martes.presentation.image.ImageActivity
+import com.martes.presentation.location.LocationActivity
+import com.martes.presentation.maps.MapsActivity
 import com.martes.presentation.profile.ProfileActivity
 
 class InicioActivity : AppCompatActivity() {
@@ -21,6 +23,7 @@ class InicioActivity : AppCompatActivity() {
     private lateinit var btnPay: Button
     private lateinit var btnProfile: Button
     private lateinit var btnUp: Button
+    private lateinit var btnMaps: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +32,7 @@ class InicioActivity : AppCompatActivity() {
         btnPay = findViewById(R.id.btnPay)
         btnProfile = findViewById(R.id.btnProfile)
         btnUp = findViewById(R.id.btnUp)
+        btnMaps = findViewById(R.id.btnMaps)
 
         btnOut.setOnClickListener {
             cerrarSesion()
@@ -54,6 +58,14 @@ class InicioActivity : AppCompatActivity() {
                 Intent(
                     this@InicioActivity,
                     ImageActivity::class.java
+                )
+            )
+        }
+        btnMaps.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@InicioActivity,
+                    MapsActivity::class.java
                 )
             )
         }

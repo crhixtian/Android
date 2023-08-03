@@ -1,4 +1,4 @@
-package com.martes.presentation.assistance
+package com.martes.presentation.location
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -15,17 +15,16 @@ import com.google.firebase.firestore.GeoPoint
 import com.google.firebase.firestore.SetOptions
 import com.martes.R
 
-class AssistanceActivity : AppCompatActivity() {
-
+class LocationActivity : AppCompatActivity() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
-    private lateinit var btnAssistance: Button
+    private lateinit var btnLocation: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_assistance)
+        setContentView(R.layout.activity_location)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        btnAssistance = findViewById(R.id.btnAssistance)
-        btnAssistance.setOnClickListener {
+        btnLocation = findViewById(R.id.btnLocation)
+        btnLocation.setOnClickListener {
             if (checkPermissions()) {
                 getLastLocation()
             }
@@ -72,13 +71,10 @@ class AssistanceActivity : AppCompatActivity() {
     }
 
     private fun saveLocationToFirestore(location: Location) {
-        val seconds = System.currentTimeMillis()/1000
         FirebaseAuth.getInstance().currentUser?.let {
             FirebaseFirestore.getInstance()
                 .collection("usuario")
                 .document(it.uid)
-                .collection("imagen")
-                .document(seconds.toString())
                 .set(
                     hashMapOf(
                         "location" to GeoPoint(location.latitude, location.longitude),

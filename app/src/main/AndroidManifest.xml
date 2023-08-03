@@ -20,6 +20,12 @@
         android:theme="@style/Theme.Martes"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.location.LocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.maps.MapsActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.assistance.AssistanceActivity"
             android:exported="false" />
         <activity
@@ -56,6 +62,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".presentation.notification.Notification"
             android:exported="false">
@@ -63,6 +70,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBQBjchZmIQujpHSaIQxBKJwnrKfG9jveY" />
     </application>
 
 </manifest>
