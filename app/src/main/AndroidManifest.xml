@@ -4,6 +4,10 @@
     package="com.martes">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -16,17 +20,37 @@
         android:theme="@style/Theme.Martes"
         tools:targetApi="31">
         <activity
-            android:name=".autenticacion.google.RegistoGoogleActivity"
+            android:name=".presentation.location.LocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.maps.MapsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.assistance.AssistanceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.image.ImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.stripe.CardActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".presentacion.InicioActivity"
+            android:name=".presentation.authentication.google.RegistoGoogleActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".InicioActivity"
             android:exported="false" />
         <activity
-            android:name=".autenticacion.RegistroActivity"
-            android:exported="false" />
+            android:name=".presentation.authentication.RegistroActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".autenticacion.LoginActivity"
+            android:name=".presentation.authentication.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -39,6 +63,17 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name=".presentation.notification.Notification"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBQBjchZmIQujpHSaIQxBKJwnrKfG9jveY" />
     </application>
 
 </manifest>

@@ -1,12 +1,13 @@
-package com.martes.autenticacion
+package com.martes.presentation.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -15,19 +16,14 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
+import com.martes.InicioActivity
 import com.martes.R
-import com.martes.autenticacion.google.RegistoGoogleActivity
-import com.martes.presentacion.InicioActivity
+import com.martes.presentation.authentication.google.RegistoGoogleActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var correo: TextInputEditText
     private lateinit var contrasena: TextInputEditText
-    private lateinit var btnLogin: Button
-    private lateinit var btnGoogle: Button
     private lateinit var textRegistro: TextView
-    private lateinit var nombre: String
-
-
     private val signInLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
@@ -49,17 +45,17 @@ class LoginActivity : AppCompatActivity() {
 
         correo = findViewById(R.id.inputCorreoL)
         contrasena = findViewById(R.id.inputContrasenaL)
-        btnLogin = findViewById(R.id.btnLogin)
-        btnGoogle = findViewById(R.id.btnGoogle)
         textRegistro = findViewById(R.id.textRegistro)
 
-        btnLogin.setOnClickListener {
+        findViewById<Button>(R.id.btnLogin).setOnClickListener {
             validarCampos()
         }
 
-        btnGoogle.setOnClickListener {
+        findViewById<Button>(R.id.btnGoogle).setOnClickListener {
             iniciarSesionGoogle()
         }
+
+        findViewById<Button>(R.id.btnFacebook).visibility = View.GONE
 
         textRegistro.setOnClickListener {
             startActivity(
@@ -86,6 +82,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun iniciarSesion() {
+        lateinit var nombre: String
         FirebaseAuth.getInstance().signInWithEmailAndPassword(
             correo.text.toString().trim(),
             contrasena.text.toString().trim()
@@ -94,7 +91,7 @@ class LoginActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     FirebaseFirestore.getInstance()
                         .collection("usuario")
-                        .document(FirebaseAuth.getInstance().currentUser?.email!!)
+                        .document(FirebaseAuth.getInstance().currentUser?.uid!!)
                         .get()
                         .addOnSuccessListener { usuario ->
                             nombre = usuario.getString("nombres").toString()
@@ -127,25 +124,28 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
+        //toast(account.displayName?.split(" ")?.first() ?: "")
         GoogleAuthProvider.getCredential(account.idToken, null).let { credential ->
             FirebaseAuth.getInstance().signInWithCredential(credential)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
                         FirebaseFirestore.getInstance()
                             .collection("usuario")
-                            .document(FirebaseAuth.getInstance().currentUser?.email!!)
+                            .document(FirebaseAuth.getInstance().currentUser?.uid!!)
                             .get()
                             .addOnSuccessListener { usuario ->
                                 if (usuario.getString("nombres") != null) {
                                     toast("Hola ${usuario.getString("nombres")}")
                                     startActivity(
-                                        Intent(this@LoginActivity,
+                                        Intent(
+                                            this@LoginActivity,
                                             InicioActivity::class.java
                                         )
                                     )
                                 } else {
                                     startActivity(
-                                        Intent(this@LoginActivity,
+                                        Intent(
+                                            this@LoginActivity,
                                             RegistoGoogleActivity::class.java
                                         )
                                     )

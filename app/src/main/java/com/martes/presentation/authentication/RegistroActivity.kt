@@ -1,24 +1,23 @@
-package com.martes.autenticacion
+package com.martes.presentation.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.martes.InicioActivity
 import com.martes.R
-import com.martes.presentacion.InicioActivity
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var nombres: TextInputEditText
     private lateinit var paterno: TextInputEditText
     private lateinit var materno: TextInputEditText
-    private lateinit var dni: TextInputEditText
     private lateinit var correo: TextInputEditText
     private lateinit var contrasena: TextInputEditText
-    private lateinit var btnRegistro: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,12 +26,18 @@ class RegistroActivity : AppCompatActivity() {
         nombres = findViewById(R.id.inputNombresR)
         paterno = findViewById(R.id.inputPaternoR)
         materno = findViewById(R.id.inputMaternoR)
-        dni = findViewById(R.id.inputDniR)
         correo = findViewById(R.id.inputCorreoR)
         contrasena = findViewById(R.id.inputContrasenaR)
-        btnRegistro = findViewById(R.id.btnRegistro)
 
-        btnRegistro.setOnClickListener {
+        findViewById<TextView>(R.id.textLogin).setOnClickListener {
+            startActivity(
+                Intent(this@RegistroActivity,
+                    LoginActivity::class.java
+                )
+            )
+        }
+
+        findViewById<Button>(R.id.btnRegistro).setOnClickListener {
             validarCampos()
         }
     }
@@ -42,18 +47,17 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun validarCampos() {
+        val camposNoVacios = listOf(correo, contrasena, nombres, materno, paterno)
+            .map { it.text.toString().trim().isNotEmpty() }
+            .all { it }
         val correoValidado = correo.text.toString().trim()
         val contrasenaValidado = contrasena.text.toString().trim()
-        if (correoValidado.isNotEmpty() && contrasenaValidado.isNotEmpty() &&
-            nombres.text.toString().trim().isNotEmpty() && materno.text.toString().trim()
-                .isNotEmpty() &&
-            paterno.text.toString().trim().isNotEmpty() && dni.text.toString().trim().isNotEmpty()
-        ) {
+
+        camposNoVacios.takeIf { it }?.let {
             registrarUsuario(correoValidado, contrasenaValidado)
-        } else {
-            toast("Campos vacios")
-        }
+        } ?: toast("Campos vacíos")
     }
+
 
     private fun registrarUsuario(correo: String, contrasena: String) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo, contrasena)
@@ -61,7 +65,7 @@ class RegistroActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     guardarInformacionUsuario()
                 } else {
-                    toast("No se pudo registrar: ${it.exception?.message}")
+                    toast("${it.exception?.message}")
                 }
             }
     }
@@ -69,13 +73,12 @@ class RegistroActivity : AppCompatActivity() {
     private fun guardarInformacionUsuario() {
         FirebaseFirestore.getInstance()
             .collection("usuario")
-            .document(FirebaseAuth.getInstance().currentUser?.email.toString())
+            .document(FirebaseAuth.getInstance().currentUser?.uid.toString())
             .set(
                 hashMapOf(
                     "nombres" to nombres.text.toString(),
                     "aPaterno" to paterno.text.toString(),
                     "aMaterno" to materno.text.toString(),
-                    "dni" to dni.text.toString()
                 )
             ).addOnSuccessListener {
                 startActivity(
@@ -87,7 +90,7 @@ class RegistroActivity : AppCompatActivity() {
                 toast("Perfil creado")
             }
             .addOnFailureListener {
-                toast("Error al guardar informacion ${it.message}")
+                toast("${it.message}")
             }
     }
 

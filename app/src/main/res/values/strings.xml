@@ -1,18 +1,33 @@
 <resources>
     <string name="app_name">Martes</string>
-    <string name="title_activity_main"></string>
+    <string name="title_activity_main">AM</string>
     <!-- -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="contrasena">Contraseña</string>
     <string name="correo_electronico">Correo electronico</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="iniciar_google">Iniciar con Google</string>
+    <string name="iniciar_facebook">Iniciar con Facebook</string>
     <string name="registrar">Registrar</string>
     <string name="nombre_completos">Nombres completos</string>
     <string name="apellido_paterno">Apellido paterno</string>
     <string name="apellido_materno">Apellido materno</string>
-    <string name="dni">Documento de indentidad</string>
-    <string name="interrogante_registro">¿No tienes registro? <b>Registrate</b> </string>
-    <string name="interrogante_login">¿Ya estas registrado? <b>Inicia sesión</b></string>
-    <string name="default_web_client_id">541271102074-dn1a6sbho55ot804p0kvhl5lasbum8o7.apps.googleusercontent.com</string>
+
+    <string name="interrogante_registro">¿No tienes registro?
+        <b>Registrate</b>
+    </string>
+
+    <string name="interrogante_login">¿Ya estas registrado?
+        <b>Inicia sesión</b>
+    </string>
+
+    <string name="default_web_client_id">541271102074-dn1a6sbho55ot804p0kvhl5lasbum8o7.apps.googleusercontent.com
+    </string>
+
+    <string name="pagar">Pagar</string>
+    <string name="firebase">Firebase</string>
+    <string name="asterisco">*</string>
+    <string name="galeria">Galeria</string>
+    <string name="msg_token_fmt">Tu token FCM: %1$s</string>
+    <string name="asistencia">Asistencia</string>
 </resources>

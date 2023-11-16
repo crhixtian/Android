@@ -1,87 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".autenticacion.LoginActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.authentication.LoginActivity">
 
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputCorreoL"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="@string/correo_electronico" />
+                    android:id="@+id/inputCorreoL"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="@string/correo_electronico"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:endIconMode="password_toggle"
+                android:layout_marginBottom="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputContrasenaL"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:maxLength="8"
-
-                android:hint="@string/contrasena" />
+                    android:id="@+id/inputContrasenaL"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:maxLength="20"
+                    android:hint="@string/contrasena"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
+        <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ui_button_background"
+                android:textSize="16sp"
+                android:text="@string/iniciar_sesion"
+                android:layout_marginBottom="10dp"/>
 
         <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ui_button_background"
-            android:textSize="16sp"
-            android:text="@string/iniciar_sesion" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
+                android:id="@+id/btnGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ui_button_background"
+                android:drawable="@drawable/googleg_standard_color_18"
+                android:text="@string/iniciar_google"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
 
         <Button
-            android:id="@+id/btnGoogle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ui_button_background"
-            android:drawableLeft="@drawable/googleg_standard_color_18"
-            android:text="@string/iniciar_google"
-            android:textSize="16sp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
+                android:id="@+id/btnFacebook"
+                android:text="@string/iniciar_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ui_button_background"
+                android:drawable="@drawable/com_facebook_color_blue"
+                android:textSize="16sp"
+                android:layout_marginBottom="15dp"/>
 
         <TextView
-            android:id="@+id/textRegistro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/interrogante_registro"
-            android:textAlignment="center"
-            android:textSize="16sp" />
+                android:id="@+id/textRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/interrogante_registro"
+                android:textAlignment="center"
+                android:textSize="16sp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

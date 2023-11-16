@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".autenticacion.google.RegistoGoogleActivity">
+    tools:context=".presentation.authentication.google.RegistoGoogleActivity">
 
     <LinearLayout
         android:layout_width="300dp"
@@ -17,7 +17,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputNombresG"
@@ -29,87 +30,46 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="10dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:weightSum="2">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPaternoG"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="55dp"
+                    android:hint="@string/apellido_paterno"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputPaternoG"
-                        android:layout_width="155dp"
-                        android:layout_height="55dp"
-                        android:hint="@string/apellido_paterno"
-                        android:inputType="text"
-                        android:maxLength="10"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            <LinearLayout
-                android:layout_width="15dp"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Space
-                    android:layout_width="15dp"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputMaternoG"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="55dp"
+                    android:hint="@string/apellido_materno"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/inputMaternoG"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:hint="@string/apellido_materno"
-                        android:inputType="text"
-                        android:maxLength="10"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputDniG"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="@string/dni"
-                android:inputType="number"
-                android:maxLength="8"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
 
         <Button
             android:id="@+id/btnRegistroG"
@@ -117,18 +77,6 @@
             android:layout_height="50dp"
             android:background="@drawable/ui_button_background"
             android:text="@string/registrar"
-            android:textSize="16sp" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/interrogante_login"
-            android:textAlignment="center"
             android:textSize="16sp" />
 
     </LinearLayout>
